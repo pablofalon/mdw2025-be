@@ -10,10 +10,8 @@ const courseSchema = new Schema(
   { timestamps: true }
 );
 
-// Tipo inferido desde el schema
-export type Course = InferSchemaType<typeof courseSchema>;
+type CourseType = InferSchemaType<typeof courseSchema>;
 
-// Evita error de re-compilación en dev (ts-node-dev) por modelos duplicados
-const CourseModel = models.Course || model<Course>("Course", courseSchema);
+const Course = model<CourseType>("Course", courseSchema);
 
-export default CourseModel;
+export default Course;

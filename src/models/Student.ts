@@ -10,7 +10,6 @@ const studentSchema = new Schema(
   { timestamps: true }
 );
 
-// Índice único explícito (además de unique:true)
 studentSchema.index({ email: 1 }, { unique: true });
 
 type StudentType = InferSchemaType<typeof studentSchema>;
